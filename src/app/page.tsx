@@ -1,5 +1,6 @@
 import "@/styles/pageHome.scss";
 import HomeForm from "@/Components/HomeForm";
+import Button from "@/Components/ui/Button";
 
 export default function Home() {
     return (
@@ -27,6 +28,22 @@ export default function Home() {
                     <h3>Form example using hookform/resolvers zod react-hook-form</h3>
                     <HomeForm />
                 </div>
+                <div className="divider"></div>
+                <div className="explain-list">
+                    <h3>Example of UI component flexible variants with class-variance-authority</h3>
+                    <Button>Button 1</Button>
+                    <Button border={"red"}>Button 2</Button>
+                    <Button variant={"transparent"} whSize={"large"} border={"green"} textSize={"large"}>
+                        Button 3
+                    </Button>
+                    <Button variant={"black"} whSize={"small"} border={"black"} textSize={"small"}>
+                        Button 4
+                    </Button>
+                    <Button variant={"black"} whSize={"medium"} border={"red"} textSize={"medium"}>
+                        Button 5
+                    </Button>
+                </div>
+                <p>They are all one Component!</p>
                 <div className="divider"></div>
             </div>
         </section>

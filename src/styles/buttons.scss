@@ -1,0 +1,60 @@
+.button {
+    &__default {
+        cursor: pointer;
+        text-transform: uppercase;
+        font-weight: bold;
+        letter-spacing: 2px;
+        border-radius: 30px;
+        margin: 7px;
+    }
+    &__variant {
+        &-black {
+            background-color: #444444;
+            color: #fff;
+        }
+        &-white {
+            background-color: #fff;
+            color: black;
+        }
+        &-transparent {
+            background-color: transparent;
+            color: #888888;
+        }
+    }
+    &__text {
+        &-small {
+            font-size: 12px;
+        }
+        &-medium {
+            font-size: 16px;
+        }
+        &-large {
+            font-size: 22px;
+        }
+    }
+    &__wh {
+        &-small {
+            width: 150px;
+            height: 20px;
+        }
+        &-medium {
+            width: 225px;
+            height: 25px;
+        }
+        &-large {
+            width: 300px;
+            height: 32px;
+        }
+    }
+    &__border {
+        &-red {
+            border: 3px solid red;
+        }
+        &-green {
+            border: 3px solid green;
+        }
+        &-black {
+            border: 3px solid black;
+        }
+    }
+}

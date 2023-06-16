@@ -1,6 +1,6 @@
 "use client";
 import homeForm from "@/lib/homeForm";
-import ErrorP from "./ui/errorP";
+import ErrorP from "./ui/ErrorP";
 import { FC } from "react";
 
 interface IHomeFormProps {}
@@ -25,6 +25,7 @@ const HomeForm: FC<IHomeFormProps> = ({}) => {
             <div>
                 <label htmlFor="isAdmin">IsAdmin</label>
                 <input id="isAdmin" type="checkbox" {...register("isAdmin")} />
+                {errors?.isAdmin?.message && <ErrorP text={errors.isAdmin.message} />}
             </div>
 
             <div>

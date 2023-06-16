@@ -11,7 +11,9 @@ const homeFormSchema = z.object({
         .max(10, { message: "The username must be 10 characters or less" })
         .regex(/^[a-zA-Z0-9_]+$/, "The username must contain only letters, numbers and underscore (_)"),
     email: z.string().email({ message: "Invalid email. Please enter a valid email address" }),
-    isAdmin: z.boolean(),
+    isAdmin: z.boolean().refine(val => val === true, {
+        message: "Value must be true",
+    }),
     // The coerce method lets you transform or modify the user input before it's validated against the schema. In this case, it converts the date string to a Date object by passing the input through new Date(input).
     createdAt: z.coerce
         .date()

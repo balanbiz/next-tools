@@ -15,6 +15,7 @@ body {
     color: var(--font-color);
     text-shadow: var(--text-shadow);
     // user-select: none;
+    overflow-x: hidden;
 }
 
 .container {
