@@ -1,0 +1,38 @@
+.promo {
+    .explain-list {
+        ul {
+            text-align: left;
+            p {
+                font-size: 20px;
+                font-style: italic;
+                line-height: 1;
+                margin: 10px;
+            }
+        }
+        form {
+            text-align: left;
+            padding: 10px;
+            & > * {
+                padding: 7px;
+            }
+            label {
+                margin: 0 10px;
+            }
+            input {
+                height: 20px;
+                padding: 4px 12px;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+            button {
+                margin: 0 15px;
+            }
+        }
+    }
+    .divider {
+        margin: 20px;
+        width: 80%;
+        height: 3px;
+        background-color: #fff;
+    }
+}

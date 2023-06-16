@@ -1,0 +1,50 @@
+:root {
+    --active-color: #ff0000;
+    --font-size: 16px;
+    --font-family: "Inter", sans-serif;
+    --font-color: white;
+    --background-color: #272727;
+    --text-shadow: 1px 1px 3px black;
+    --container-width: 1440;
+}
+
+body {
+    background-color: var(--background-color);
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+    color: var(--font-color);
+    text-shadow: var(--text-shadow);
+    // user-select: none;
+}
+
+.container {
+    max-width: var(--container-width) + px;
+    padding: 0 15px;
+    margin: 0 auto;
+    text-align: center;
+    @media (max-width: 420px) {
+        padding: 0 6px;
+    }
+}
+
+section {
+    padding: 15px 0;
+}
+
+h2 {
+    font-size: 32px;
+    @media (max-width: 620px) {
+        font-size: 24px;
+    }
+}
+
+h3 {
+    font-size: 25px;
+    @media (max-width: 620px) {
+        font-size: 18px;
+    }
+}
+
+img {
+    user-select: none;
+}
