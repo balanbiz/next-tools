@@ -59,6 +59,7 @@
         .npm {
             color: cadetblue;
             font-weight: bold;
+            cursor: pointer;
         }
 
         a {
@@ -68,6 +69,18 @@
             }
             letter-spacing: 2px;
             font-style: italic;
+        }
+        .divider-small {
+            width: 40%;
+            margin: 12px 0;
+            height: 1px;
+            background-color: #fff;
+        }
+        .underline {
+            text-decoration: underline;
+        }
+        .yellow {
+            color: yellow;
         }
     }
     .divider {

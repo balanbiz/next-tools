@@ -3,6 +3,8 @@ import HomeForm from "@/Components/HomeForm";
 import Button, { IButtonProps } from "@/Components/ui/Button";
 import GoogleSvg from "@/Components/svg/GoogleSvg";
 import { AlertTriangle, Heart, Loader, Loader2 } from "lucide-react";
+import { format, eachWeekendOfInterval } from "date-fns";
+import { utcToZonedTime } from "date-fns-tz";
 
 export default function Home() {
     return (
@@ -13,15 +15,47 @@ export default function Home() {
                     <ul>
                         <p>To start app in folder</p>
                         <li>Choose folder in command promt and write</li>
-                        <li>npx create-next-app .</li>
-                        <p>Choose all variants yes with arrows on keyboard excluding Tailwind</p>
-                        <li>Would you like to use TypeScript with this project? » No / Yes</li>
-                        <li>Would you like to use ESLint with this project? » No / Yes</li>
-                        <li>Would you like to use Tailwind CSS with this project? » No / Yes</li>
-                        <p>I dont like Tailwind, so I prefer no</p>
-                        <li>Would you like to use `src/` directory with this project? » No / Yes</li>
-                        <li>Use App Router (recommended)? » No / Yes</li>
-                        <li>Would you like to customize the default import alias? » No / Yes</li>
+                        <li>
+                            <span className="npm">npx create-next-app .</span>
+                        </li>
+                        <p>Choose all variants Yes with arrows on keyboard excluding Tailwind</p>
+                        <li>
+                            Would you like to use TypeScript with this project?{" "}
+                            <span className="yellow">
+                                » No / <span className="underline">Yes</span>
+                            </span>
+                        </li>
+                        <li>
+                            Would you like to use ESLint with this project?{" "}
+                            <span className="yellow">
+                                » No / <span className="underline">Yes</span>
+                            </span>
+                        </li>
+                        <li>
+                            Would you like to use Tailwind CSS with this project?{" "}
+                            <span className="yellow">
+                                » No / <span className="underline">Yes</span>
+                            </span>
+                        </li>
+                        <p>I dont like Tailwind, so I prefer No</p>
+                        <li>
+                            Would you like to use `src/` directory with this project?{" "}
+                            <span className="yellow">
+                                » No / <span className="underline">Yes</span>
+                            </span>
+                        </li>
+                        <li>
+                            Use App Router (recommended)?{" "}
+                            <span className="yellow">
+                                » No / <span className="underline">Yes</span>
+                            </span>
+                        </li>
+                        <li>
+                            Would you like to customize the default import alias?{" "}
+                            <span className="yellow">
+                                » No / <span className="underline">Yes</span>
+                            </span>
+                        </li>
                         <li>Default path yes</li>
                     </ul>
                 </div>
@@ -61,7 +95,7 @@ export default function Home() {
                 <div className="explain-list svgs">
                     <h3>Some handy ways to use SVG icons</h3>
                     <p>If you already have icons, the prettiest way to use them in JSX is by creating a component!</p>
-                    <p>By the way className inside SVG component</p>
+                    <p>By the way className is inside SVG component</p>
                     <GoogleSvg />
                     <p>
                         For common solutions we can use <span className="npm">npm i lucide-react</span> library with 1000+ optimized icons
@@ -82,8 +116,60 @@ export default function Home() {
                 <div className="divider"></div>
                 <div className="explain-list ">
                     <h3>
-                        Create UI UX friendly notifications with <span className="npm">npm i react-hot-toast</span>
+                        What time is it now? with <span className="npm">npm i date-fns</span>
                     </h3>
+                    <p>This package has a lot of different functions to proper work with Dates</p>
+                    <ul>
+                        <li>
+                            --- new Date().toString()
+                            <br />
+                            {new Date().toString()}
+                        </li>
+                        <div className="divider-small"></div>
+                        <li>
+                            --- format(new Date(), 'dd/MM/yyyy')
+                            <br />
+                            {format(new Date(), "dd/MM/yyyy")}
+                        </li>
+                        <div className="divider-small"></div>
+                        <li>
+                            --- format(new Date(2014, 1, 24), 'MM/dd/yyyy')
+                            <br />
+                            {format(new Date(2014, 1, 24), "MM/dd/yyyy")}
+                        </li>
+                        <div className="divider-small"></div>
+                        <li>
+                            --- eachWeekendOfInterval(interval)
+                            <br />
+                            {eachWeekendOfInterval({ start: new Date(2023, 6, 23), end: new Date(2023, 7, 1) }).map(date => {
+                                return (
+                                    <>
+                                        {format(date, "dd/MM/yyyy")}
+                                        {", "}
+                                    </>
+                                );
+                            })}
+                        </li>
+                        <div className="divider-small"></div>
+                        <p>
+                            <span className="npm">npm i date-fns-tz</span> for timezones
+                        </p>
+                        <li>
+                            --- utcToZonedTime(date, timeZone)
+                            <br />
+                            Berlin - {format(utcToZonedTime(new Date(), "Europe/Berlin"), "H:m")}, NewYork -{" "}
+                            {format(utcToZonedTime(new Date(), "America/New_York"), "H:m")}, Johannesburg -{" "}
+                            {format(utcToZonedTime(new Date(), "Africa/Johannesburg"), "H:m")}
+                        </li>
+                        <div className="divider-small"></div>
+                    </ul>
+                    <p>
+                        And a lot of more functions on{" "}
+                        <a href="https://date-fns.org/docs/Getting-Started" target="_blank">
+                            date-fns documentation
+                        </a>{" "}
+                        page
+                    </p>
                 </div>
                 <div className="divider"></div>
                 <div className="explain-list">

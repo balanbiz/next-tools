@@ -33,7 +33,6 @@ const HomeForm: FC<IHomeFormProps> = ({}) => {
                 <input id="createdAt" type="date" {...register("createdAt")} />
                 {errors?.createdAt?.message && <ErrorP text={errors.createdAt.message} />}
             </div>
-
             <button type="submit">Submit</button>
         </form>
     );
