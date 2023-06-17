@@ -5,6 +5,7 @@ import GoogleSvg from "@/Components/svg/GoogleSvg";
 import { AlertTriangle, Heart, Loader, Loader2 } from "lucide-react";
 import { format, eachWeekendOfInterval } from "date-fns";
 import { utcToZonedTime } from "date-fns-tz";
+import CopyClipboard from "@/Components/ux/CopyClipboard";
 
 export default function Home() {
     return (
@@ -16,7 +17,13 @@ export default function Home() {
                         <p>To start app in folder</p>
                         <li>Choose folder in command promt and write</li>
                         <li>
-                            <span className="npm">npx create-next-app .</span>
+                            <span className="npm">
+                                <CopyClipboard>npx create-next-app .</CopyClipboard>
+                                {/* Some interesting logic with the component above. 
+                                As we dont want to make page 'use client' we put onClick inside render of child component. */}
+                            </span>
+                            <br />
+                            You can copy turquoise commands by clicking them.
                         </li>
                         <p>Choose all variants Yes with arrows on keyboard excluding Tailwind</p>
                         <li>
@@ -34,7 +41,7 @@ export default function Home() {
                         <li>
                             Would you like to use Tailwind CSS with this project?{" "}
                             <span className="yellow">
-                                » No / <span className="underline">Yes</span>
+                                » <span className="underline">No</span> / Yes
                             </span>
                         </li>
                         <p>I dont like Tailwind, so I prefer No</p>
@@ -62,14 +69,20 @@ export default function Home() {
                 <div className="divider"></div>
                 <div className="explain-list">
                     <h3>
-                        Form example using <span className="npm">npm i @hookform/resolvers zod react-hook-form</span>
+                        Form example using{" "}
+                        <span className="npm">
+                            <CopyClipboard>npm i @hookform/resolvers zod react-hook-form</CopyClipboard>
+                        </span>
                     </h3>
                     <HomeForm />
                 </div>
                 <div className="divider"></div>
                 <div className="explain-list buttons">
                     <h3>
-                        Example of UI component flexible variants with <span className="npm">npm i class-variance-authority</span>
+                        Example of UI component flexible variants with{" "}
+                        <span className="npm">
+                            <CopyClipboard>npm i class-variance-authority</CopyClipboard>
+                        </span>
                     </h3>
                     <Button>Button 1</Button>
                     <Button border={"red"}>Button 2</Button>
@@ -86,7 +99,7 @@ export default function Home() {
                         They are all one Component! And one more button below with a lot of props, but cleaner way, watch this in code on
                         main page
                     </p>
-                    <Button {...button5Props} className="last-button" /* this props under the page function */>
+                    <Button {...button5Props} /* this props under the page function */ className="last-button">
                         <Loader size={25} /> <span>anything</span> <Loader size={25} />
                     </Button>
                     <p>You can also insert anything becouse we have prop children</p>
@@ -98,7 +111,11 @@ export default function Home() {
                     <p>By the way className is inside SVG component</p>
                     <GoogleSvg />
                     <p>
-                        For common solutions we can use <span className="npm">npm i lucide-react</span> library with 1000+ optimized icons
+                        For common solutions we can use{" "}
+                        <span className="npm">
+                            <CopyClipboard>npm i lucide-react</CopyClipboard>
+                        </span>{" "}
+                        library with 1000+ optimized icons
                     </p>
                     <p>
                         Go to{" "}
@@ -116,7 +133,10 @@ export default function Home() {
                 <div className="divider"></div>
                 <div className="explain-list ">
                     <h3>
-                        What time is it now? with <span className="npm">npm i date-fns</span>
+                        What time is it now? with{" "}
+                        <span className="npm">
+                            <CopyClipboard>npm i date-fns</CopyClipboard>
+                        </span>
                     </h3>
                     <p>This package has a lot of different functions to proper work with Dates</p>
                     <ul>
@@ -141,18 +161,21 @@ export default function Home() {
                         <li>
                             --- eachWeekendOfInterval(interval)
                             <br />
-                            {eachWeekendOfInterval({ start: new Date(2023, 6, 23), end: new Date(2023, 7, 1) }).map(date => {
+                            {eachWeekendOfInterval({ start: new Date(2023, 6, 23), end: new Date(2023, 7, 1) }).map((date, index) => {
                                 return (
-                                    <>
+                                    <span key={index}>
                                         {format(date, "dd/MM/yyyy")}
                                         {", "}
-                                    </>
+                                    </span>
                                 );
                             })}
                         </li>
                         <div className="divider-small"></div>
                         <p>
-                            <span className="npm">npm i date-fns-tz</span> for timezones
+                            <span className="npm">
+                                <CopyClipboard>npm i date-fns-tz</CopyClipboard>
+                            </span>{" "}
+                            for timezones
                         </p>
                         <li>
                             --- utcToZonedTime(date, timeZone)
