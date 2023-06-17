@@ -28,6 +28,47 @@
                 margin: 0 15px;
             }
         }
+
+        &.buttons {
+            .last-button {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 0 auto;
+                gap: 10px;
+            }
+        }
+
+        &.svgs {
+            svg {
+                width: 60px;
+                height: 60px;
+                margin: 0 auto;
+                padding: 0 7px;
+                &.animate-spin {
+                    @keyframes spin {
+                        to {
+                            transform: rotate(360deg);
+                        }
+                    }
+                    animation: spin 5s cubic-bezier(0.6, -0.6, 0.735, 0.045) infinite;
+                }
+            }
+        }
+
+        .npm {
+            color: cadetblue;
+            font-weight: bold;
+        }
+
+        a {
+            color: #fff;
+            &:hover {
+                color: rgb(128, 0, 220);
+            }
+            letter-spacing: 2px;
+            font-style: italic;
+        }
     }
     .divider {
         margin: 20px;

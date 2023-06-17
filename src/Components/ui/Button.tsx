@@ -1,7 +1,7 @@
 // npm i class-variance-authority
 import "@/styles/buttons.scss";
 import { VariantProps, cva } from "class-variance-authority";
-import { ButtonHTMLAttributes, FC } from "react";
+import { ButtonHTMLAttributes, ClassType, FC } from "react";
 
 export const buttonVariants = cva("button__default" /* more default classes for all buttons if needed*/, {
     variants: {
@@ -26,10 +26,6 @@ export const buttonVariants = cva("button__default" /* more default classes for 
             black: "button__border-black",
         },
     },
-    compoundVariants: [
-        { variant: "transparent", textSize: "large", whSize: "small" },
-        { variant: "transparent", textSize: "small", whSize: "large" },
-    ],
     defaultVariants: {
         variant: "white",
         textSize: "medium",
@@ -38,14 +34,13 @@ export const buttonVariants = cva("button__default" /* more default classes for 
 });
 
 // if you want standart button intellisence uncomment below
-export interface IButtonProps extends /* ButtonHTMLAttributes<HTMLButtonElement>, */ VariantProps<typeof buttonVariants> {
+export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof buttonVariants> {
     isLoading?: boolean;
-    children?: React.ReactNode;
 }
 
-const Button: FC<IButtonProps> = ({ variant, textSize, whSize, border, isLoading, children, ...props }) => {
+const Button: FC<IButtonProps> = ({ variant, textSize, whSize, border, isLoading, className, children, ...props }) => {
     return (
-        <button className={buttonVariants({ variant, textSize, whSize, border })} {...props}>
+        <button className={buttonVariants({ variant, textSize, whSize, border, className })} {...props}>
             {isLoading ? "Loading..." : null}
             {children}
         </button>

@@ -34,14 +34,14 @@ const homeFormSchema = z.object({
         ),
 });
 
-type IHomeFormInput = z.infer<typeof homeFormSchema>;
+type IHomeForm = z.infer<typeof homeFormSchema>;
 
 export default function homeForm() {
     const {
         register,
         handleSubmit,
         formState: { errors },
-    } = useForm<IHomeFormInput>({
+    } = useForm<IHomeForm>({
         resolver: zodResolver(homeFormSchema),
         defaultValues: {
             username: "",
