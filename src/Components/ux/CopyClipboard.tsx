@@ -2,10 +2,10 @@
 import { FC, useRef, useState } from "react";
 
 interface IcopyClipboardProps {
-    children: string;
+    text: string;
 }
 
-const CopyClipboard: FC<IcopyClipboardProps> = ({ children }) => {
+const CopyClipboard: FC<IcopyClipboardProps> = ({ text }) => {
     const [isMouseEnterEnabled, setMouseEnterEnabled] = useState(true);
     const childrenRef = useRef<HTMLSpanElement>(null);
 
@@ -21,7 +21,7 @@ const CopyClipboard: FC<IcopyClipboardProps> = ({ children }) => {
         };
 
         const onCLick = () => {
-            navigator.clipboard.writeText(children);
+            navigator.clipboard.writeText(text);
             disableMouseEnter();
             childrenRef.current?.classList.add("active");
             setTimeout(() => {
@@ -47,7 +47,7 @@ const CopyClipboard: FC<IcopyClipboardProps> = ({ children }) => {
             onMouseEnter={tipHandler().onMouseEnter}
             onMouseLeave={tipHandler().onMouseLeave}
         >
-            {children}
+            {text}
         </span>
     );
 };

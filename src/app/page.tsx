@@ -6,8 +6,9 @@ import { AlertTriangle, Heart, Loader, Loader2 } from "lucide-react";
 import { format, eachWeekendOfInterval } from "date-fns";
 import { utcToZonedTime } from "date-fns-tz";
 import CopyClipboard from "@/Components/ux/CopyClipboard";
+import SkeletonExample from "@/Components/SkeletonExample";
 
-export default function Home() {
+export default async function Home() {
     return (
         <section className="promo">
             <div className="container">
@@ -18,7 +19,7 @@ export default function Home() {
                         <li>Choose folder in command promt and write</li>
                         <li>
                             <span className="npm">
-                                <CopyClipboard>npx create-next-app .</CopyClipboard>
+                                <CopyClipboard text="npx create-next-app ." />
                                 {/* Some interesting logic with the component above. 
                                 As we dont want to make page 'use client' we put onClick inside render of child component. */}
                             </span>
@@ -71,7 +72,7 @@ export default function Home() {
                     <h3>
                         Form example using{" "}
                         <span className="npm">
-                            <CopyClipboard>npm i @hookform/resolvers zod react-hook-form</CopyClipboard>
+                            <CopyClipboard text="npm i @hookform/resolvers zod react-hook-form" />
                         </span>
                     </h3>
                     <HomeForm />
@@ -81,7 +82,7 @@ export default function Home() {
                     <h3>
                         Example of UI component flexible variants with{" "}
                         <span className="npm">
-                            <CopyClipboard>npm i class-variance-authority</CopyClipboard>
+                            <CopyClipboard text="npm i class-variance-authority" />
                         </span>
                     </h3>
                     <Button>Button 1</Button>
@@ -113,7 +114,7 @@ export default function Home() {
                     <p>
                         For common solutions we can use{" "}
                         <span className="npm">
-                            <CopyClipboard>npm i lucide-react</CopyClipboard>
+                            <CopyClipboard text="npm i lucide-react" />
                         </span>{" "}
                         library with 1000+ optimized icons
                     </p>
@@ -135,7 +136,7 @@ export default function Home() {
                     <h3>
                         What time is it now? with{" "}
                         <span className="npm">
-                            <CopyClipboard>npm i date-fns</CopyClipboard>
+                            <CopyClipboard text="npm i date-fns" />
                         </span>
                     </h3>
                     <p>This package has a lot of different functions to proper work with Dates</p>
@@ -173,7 +174,7 @@ export default function Home() {
                         <div className="divider-small"></div>
                         <p>
                             <span className="npm">
-                                <CopyClipboard>npm i date-fns-tz</CopyClipboard>
+                                <CopyClipboard text="npm i date-fns-tz" />
                             </span>{" "}
                             for timezones
                         </p>
@@ -192,6 +193,39 @@ export default function Home() {
                             date-fns documentation
                         </a>{" "}
                         page
+                    </p>
+                </div>
+                <div className="divider"></div>
+                <div className="explain-list">
+                    <h3>
+                        The best way to improve UX is{" "}
+                        <span className="npm">
+                            <CopyClipboard text="npm i react-loading-skeleton" />
+                        </span>
+                    </h3>
+                    <p>
+                        There is a link to more instructions:{" "}
+                        <a href="https://www.npmjs.com/package/react-loading-skeleton" target="_blank">
+                            {" "}
+                            npm site
+                        </a>
+                    </p>
+                    <p>We can use this plugin in loading.tsx page which is like layout.tsx or put this in components with some jsx.</p>
+                    <div className="sceleton">
+                        <div className="sceleton-tab">
+                            <p>Not ready</p>
+                            <SkeletonExample />
+                        </div>
+                        <div className="sceleton-tab">
+                            <p>ready</p>
+                            <div className="sceleton-box">anything inside</div>
+                        </div>
+                    </div>
+                    <p>
+                        You can test the view of working skeletons in your component by command:{" "}
+                        <span className="npm">
+                            <CopyClipboard text="await new Promise(resolve => setTimeout(resolve, 5000000))" />
+                        </span>
                     </p>
                 </div>
                 <div className="divider"></div>

@@ -115,6 +115,23 @@
         .yellow {
             color: yellow;
         }
+        .sceleton {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            &-box {
+                width: 200px;
+                height: 200px;
+                background-color: #f4f4f4;
+                color: #050505;
+                font-weight: bold;
+                text-align: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
     }
     .divider {
         margin: 20px;

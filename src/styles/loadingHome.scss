@@ -1,0 +1,29 @@
+@keyframes moveAndSpin {
+    0% {
+        top: 0;
+        left: 0;
+        transform: rotate(0deg);
+    }
+    33% {
+        top: calc(100% - 50px);
+        left: calc(100% - 50px);
+        transform: rotate(180deg);
+    }
+    66% {
+        top: calc(50% - 50px);
+        left: 0;
+        transform: rotate(0);
+    }
+    100% {
+        top: 0;
+        left: calc(100% - 50px);
+        transform: rotate(-180deg);
+    }
+}
+
+.banan {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    animation: moveAndSpin 5s infinite linear;
+}
