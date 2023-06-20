@@ -1,5 +1,6 @@
 import "@/styles/pageHome.scss";
 import HomeForm from "@/Components/HomeForm";
+import { clsx } from "clsx";
 import Button, { IButtonProps } from "@/Components/ui/Button";
 import GoogleSvg from "@/Components/svg/GoogleSvg";
 import { AlertTriangle, Heart, Loader, Loader2 } from "lucide-react";
@@ -9,6 +10,8 @@ import CopyClipboard from "@/Components/ux/CopyClipboard";
 import SkeletonExample from "@/Components/SkeletonExample";
 
 export default async function Home() {
+    const isLoading = false;
+
     return (
         <section className="promo">
             <div className="container">
@@ -76,6 +79,7 @@ export default async function Home() {
                         </span>
                     </h3>
                     <HomeForm />
+                    <p>More over Zod is the easiest way to validate incoming from user data in api</p>
                 </div>
                 <div className="divider"></div>
                 <div className="explain-list buttons">
@@ -104,6 +108,22 @@ export default async function Home() {
                         <Loader size={25} /> <span>anything</span> <Loader size={25} />
                     </Button>
                     <p>You can also insert anything becouse we have prop children</p>
+                    <p>
+                        But if we dont need to use component or dont need to put typescript inside for intellisence, we can use{" "}
+                        <span className="npm">
+                            <CopyClipboard text="npm i clsx" />
+                        </span>
+                    </p>
+                    <p>
+                        A tiny utility for constructing className strings conditionally. Here is a link{" "}
+                        <a href="https://www.npmjs.com/package/clsx">to docs</a>
+                        <Button
+                            className={clsx("button_default", {
+                                "button__variant-white": isLoading,
+                                "button__variant-transparent": !isLoading,
+                            })}
+                        />
+                    </p>
                 </div>
                 <div className="divider"></div>
                 <div className="explain-list svgs">
@@ -240,6 +260,13 @@ export default async function Home() {
                             A lot of functions have two variants: for server and analogue for client. Like getServerSession and useSession
                         </li>
                         <li>Be careful using curly brackets in imports</li>
+                        <li>
+                            if you create common functions which you are going to use throw entire app, divide them on client and server .ts
+                        </li>
+                        <li>
+                            If you need to use server parent and sever child inside parent with long time fetch, wrap child in Suspense
+                            built in component
+                        </li>
                     </ul>
                 </div>
                 <div className="divider"></div>

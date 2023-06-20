@@ -1,7 +1,7 @@
 // npm i class-variance-authority
 import "@/styles/buttons.scss";
 import { VariantProps, cva } from "class-variance-authority";
-import { ButtonHTMLAttributes, ClassType, FC } from "react";
+import { ButtonHTMLAttributes, FC } from "react";
 
 export const buttonVariants = cva("button__default" /* more default classes for all buttons if needed*/, {
     variants: {

@@ -1,4 +1,4 @@
-/* "use client";
+"use client";
 // import for forms - npm i @hookform/resolvers zod react-hook-form
 import * as z from "zod";
 import { useForm } from "react-hook-form";
@@ -36,7 +36,7 @@ const homeFormSchema = z.object({
 
 export type IHomeForm = z.infer<typeof homeFormSchema>;
 
-export default function homeForm() {
+export default function useHomeForm() {
     const {
         register,
         handleSubmit,
@@ -52,4 +52,3 @@ export default function homeForm() {
     });
     return { register, handleSubmit, errors };
 }
- */

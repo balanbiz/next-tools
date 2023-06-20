@@ -1,10 +1,7 @@
-/* "use client";
-// import for forms - npm i @hookform/resolvers zod react-hook-form
-import * as z from "zod";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
 
-const homeFormSchema = z.object({
+// We cannot take standart validation object from client component to server, so there is a copy of Zod object. Plus we can customize it if needed
+export const homeUserServerValidation = z.object({
     username: z
         .string()
         .min(4, { message: "The username must be 4 characters or more" })
@@ -33,23 +30,3 @@ const homeFormSchema = z.object({
             { message: "You must be 18 years or older" }
         ),
 });
-
-export type IHomeForm = z.infer<typeof homeFormSchema>;
-
-export default function homeForm() {
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-    } = useForm<IHomeForm>({
-        resolver: zodResolver(homeFormSchema),
-        defaultValues: {
-            username: "",
-            email: "",
-            isAdmin: true,
-            createdAt: new Date(),
-        },
-    });
-    return { register, handleSubmit, errors };
-}
- */
