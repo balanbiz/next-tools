@@ -9,9 +9,16 @@
                 margin: 10px;
             }
         }
+        .forms-wrap {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
         form {
             text-align: left;
             padding: 10px;
+            border: 3px solid yellow;
+            max-width: 320px;
             & > * {
                 padding: 7px;
             }
@@ -26,6 +33,10 @@
             }
             button {
                 margin: 0 15px;
+            }
+            p {
+                display: inline;
+                word-wrap: break-word;
             }
         }
 

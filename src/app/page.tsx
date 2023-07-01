@@ -8,6 +8,7 @@ import { format, eachWeekendOfInterval } from "date-fns";
 import { utcToZonedTime } from "date-fns-tz";
 import CopyClipboard from "@/Components/ux/CopyClipboard";
 import SkeletonExample from "@/Components/SkeletonExample";
+import HomeFormTanStack from "@/Components/HomeFormTanStack";
 
 export default async function Home() {
     const isLoading = false;
@@ -71,14 +72,17 @@ export default async function Home() {
                     </ul>
                 </div>
                 <div className="divider"></div>
-                <div className="explain-list">
+                <div className="explain-list forms">
                     <h3>
                         Form example using{" "}
                         <span className="npm">
                             <CopyClipboard text="npm i @hookform/resolvers zod react-hook-form" />
                         </span>
                     </h3>
-                    <HomeForm />
+                    <div className="forms-wrap">
+                        <HomeForm />
+                        <HomeFormTanStack />
+                    </div>
                     <p>More over Zod is the easiest way to validate incoming from user data in api</p>
                 </div>
                 <div className="divider"></div>

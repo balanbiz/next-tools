@@ -12,7 +12,7 @@ const HomeForm: FC<IHomeFormProps> = ({}) => {
     const { register, handleSubmit, errors } = useHomeForm();
 
     // standart way without TanStack react-query
-    /* const [isLoading, setIsLoading] = useState<boolean>(false);
+    const [isLoading, setIsLoading] = useState<boolean>(false);
     const [fetchError, setFetchError] = useState<string | null>(null);
 
     useEffect(() => {
@@ -29,50 +29,39 @@ const HomeForm: FC<IHomeFormProps> = ({}) => {
             .finally(() => {
                 setIsLoading(false);
             });
-    }; */
-
-    // React -query method
-
-    const mutation = useMutation({
-        mutationFn: (data: IHomeForm) => {
-            return postResourse("/api/add-user", data);
-        },
-    });
-
-    const onSubmit: SubmitHandler<IHomeForm> = data => mutation.mutate(data);
+    };
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <div>
-                <label htmlFor="username">Username</label>
-                <input id="username" {...register("username")} />
-                {errors?.username?.message && <ErrorP text={errors.username.message} />}
-            </div>
+        <div>
+            <p>Only hook form HomeForm.tsx</p>
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <div>
+                    <label htmlFor="username">Username</label>
+                    <input id="username" {...register("username")} />
+                    {errors?.username?.message && <ErrorP text={errors.username.message} />}
+                </div>
 
-            <div>
-                <label htmlFor="email">Email</label>
-                <input id="email" {...register("email")} />
-                {errors?.email?.message && <ErrorP text={errors.email.message} />}
-            </div>
+                <div>
+                    <label htmlFor="email">Email</label>
+                    <input id="email" {...register("email")} />
+                    {errors?.email?.message && <ErrorP text={errors.email.message} />}
+                </div>
 
-            <div>
-                <label htmlFor="isAdmin">IsAdmin</label>
-                <input id="isAdmin" type="checkbox" {...register("isAdmin")} />
-                {errors?.isAdmin?.message && <ErrorP text={errors.isAdmin.message} />}
-            </div>
+                <div>
+                    <label htmlFor="isAdmin">IsAdmin</label>
+                    <input id="isAdmin" type="checkbox" {...register("isAdmin")} />
+                    {errors?.isAdmin?.message && <ErrorP text={errors.isAdmin.message} />}
+                </div>
 
-            <div>
-                <label htmlFor="createdAt">Creation Date</label>
-                <input id="createdAt" type="date" {...register("createdAt")} />
-                {errors?.createdAt?.message && <ErrorP text={errors.createdAt.message} />}
-            </div>
-            {/* <button type="submit">{isLoading ? "Loading..." : "Submit"}</button>
-            {fetchError} */}
-            <button type="submit"> "Submit"</button>
-            {/* {
-                mutation!.isLoading ? ('Adding user...') : {mutation!.isError }
-            } */}
-        </form>
+                <div>
+                    <label htmlFor="createdAt">Creation Date</label>
+                    <input id="createdAt" type="date" {...register("createdAt")} />
+                    {errors?.createdAt?.message && <ErrorP text={errors.createdAt.message} />}
+                </div>
+                <button type="submit">{isLoading ? "Loading..." : "Submit"}</button>
+                {fetchError}
+            </form>
+        </div>
     );
 };
 

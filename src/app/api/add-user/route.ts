@@ -1,6 +1,5 @@
 import { homeUserServerValidation } from "@/lib/validations/homeUserServerValidation";
 import { db_connect } from "../db_connect";
-import { Query } from "mysql2/typings/mysql/lib/protocol/sequences/Query";
 import { z } from "zod";
 
 export async function POST(req: Request) {
@@ -9,11 +8,10 @@ export async function POST(req: Request) {
 
         const { username, email, isAdmin, createdAt } = homeUserServerValidation.parse(body);
 
-        const home_users_table = (await db_connect("SELECT * FROM home_users1")) as IHomeUser[];
+        // dont forget that sql query boolean dont need quotes
+        const insert_query = `INSERT INTO home_users (username, email, isAdmin, createdAt) VALUES ('${username}', '${email}', ${isAdmin}, '${createdAt}')`;
+        await db_connect(insert_query);
 
-        /* if (home_users_table.length === 0) {
-            return new Response("No users in db", { status: 400 });
-        } */
         await new Promise(resolve => setTimeout(resolve, 2000));
         return new Response(JSON.stringify(body));
     } catch (error: any) {
