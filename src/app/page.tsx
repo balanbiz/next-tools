@@ -22,11 +22,9 @@ export default async function Home() {
                         <p>To start app in folder</p>
                         <li>Choose folder in command promt and write</li>
                         <li>
-                            <span className="npm">
-                                <CopyClipboard text="npx create-next-app ." />
-                                {/* Some interesting logic with the component above. 
-                                As we dont want to make page 'use client' we put onClick inside render of child component. */}
-                            </span>
+                            <CopyClipboard text="npx create-next-app ." />
+                            {/* Some interesting logic with the component above. 
+                            As we dont want to make page 'use client' we put onClick inside render of child component. */}
                             <br />
                             You can copy turquoise commands by clicking them.
                         </li>
@@ -70,14 +68,21 @@ export default async function Home() {
                         </li>
                         <li>Default path yes</li>
                     </ul>
+                    <p>More default settings</p>
+                    <ul>
+                        <li>
+                            <CopyClipboard text="npm i normalize.css" /> and put <CopyClipboard text='@import "normalize.css";' /> in global
+                            css file to drop different browsers default styles
+                        </li>
+                        <li>
+                            <CopyClipboard text="npm i sharp" /> if we are using built in Image component
+                        </li>
+                    </ul>
                 </div>
                 <div className="divider"></div>
                 <div className="explain-list forms">
                     <h3>
-                        Form example using{" "}
-                        <span className="npm">
-                            <CopyClipboard text="npm i @hookform/resolvers zod react-hook-form" />
-                        </span>
+                        Form example using <CopyClipboard text="npm i @hookform/resolvers zod react-hook-form" />
                     </h3>
                     <div className="forms-wrap">
                         <HomeForm />
@@ -88,10 +93,7 @@ export default async function Home() {
                 <div className="divider"></div>
                 <div className="explain-list buttons">
                     <h3>
-                        Example of UI component flexible variants with{" "}
-                        <span className="npm">
-                            <CopyClipboard text="npm i class-variance-authority" />
-                        </span>
+                        Example of UI component flexible variants with <CopyClipboard text="npm i class-variance-authority" />
                     </h3>
                     <Button>Button 1</Button>
                     <Button border={"red"}>Button 2</Button>
@@ -114,9 +116,7 @@ export default async function Home() {
                     <p>You can also insert anything becouse we have prop children</p>
                     <p>
                         But if we dont need to use component or dont need to put typescript inside for intellisence, we can use{" "}
-                        <span className="npm">
-                            <CopyClipboard text="npm i clsx" />
-                        </span>
+                        <CopyClipboard text="npm i clsx" />
                     </p>
                     <p>
                         A tiny utility for constructing className strings conditionally. Here is a link{" "}
@@ -136,11 +136,7 @@ export default async function Home() {
                     <p>By the way className is inside SVG component</p>
                     <GoogleSvg />
                     <p>
-                        For common solutions we can use{" "}
-                        <span className="npm">
-                            <CopyClipboard text="npm i lucide-react" />
-                        </span>{" "}
-                        library with 1000+ optimized icons
+                        For common solutions we can use <CopyClipboard text="npm i lucide-react" /> library with 1000+ optimized icons
                     </p>
                     <p>
                         Go to{" "}
@@ -158,10 +154,7 @@ export default async function Home() {
                 <div className="divider"></div>
                 <div className="explain-list ">
                     <h3>
-                        What time is it now? with{" "}
-                        <span className="npm">
-                            <CopyClipboard text="npm i date-fns" />
-                        </span>
+                        What time is it now? with <CopyClipboard text="npm i date-fns" />
                     </h3>
                     <p>This package has a lot of different functions to proper work with Dates</p>
                     <ul>
@@ -197,10 +190,7 @@ export default async function Home() {
                         </li>
                         <div className="divider-small"></div>
                         <p>
-                            <span className="npm">
-                                <CopyClipboard text="npm i date-fns-tz" />
-                            </span>{" "}
-                            for timezones
+                            <CopyClipboard text="npm i date-fns-tz" /> for timezones
                         </p>
                         <li>
                             --- utcToZonedTime(date, timeZone)
@@ -222,10 +212,7 @@ export default async function Home() {
                 <div className="divider"></div>
                 <div className="explain-list">
                     <h3>
-                        The best way to improve UX is{" "}
-                        <span className="npm">
-                            <CopyClipboard text="npm i react-loading-skeleton" />
-                        </span>
+                        The best way to improve UX is <CopyClipboard text="npm i react-loading-skeleton" />
                     </h3>
                     <p>
                         There is a link to more instructions:{" "}
@@ -247,10 +234,15 @@ export default async function Home() {
                     </div>
                     <p>
                         You can test the view of working skeletons in your component by command:{" "}
-                        <span className="npm">
-                            <CopyClipboard text="await new Promise(resolve => setTimeout(resolve, 5000000))" />
-                        </span>
+                        <CopyClipboard text="await new Promise(resolve => setTimeout(resolve, 5000000))" />
                     </p>
+                </div>
+                <div className="divider"></div>
+                <div className="explain-list">
+                    <h3>
+                        Previously we found out how to write flexible ui component. But forgot about usual classes.{" "}
+                        <CopyClipboard text="npm i clsx" />
+                    </h3>
                 </div>
                 <div className="divider"></div>
                 <div className="explain-list">
@@ -265,11 +257,19 @@ export default async function Home() {
                         </li>
                         <li>Be careful using curly brackets in imports</li>
                         <li>
-                            if you create common functions which you are going to use throw entire app, divide them on client and server .ts
+                            If you create common functions which you are going to use throw entire app, divide them on client and server .ts
                         </li>
                         <li>
                             If you need to use server parent and sever child inside parent with long time fetch, wrap child in Suspense
                             built in component
+                        </li>
+                        <li>
+                            Sometimes we need to start "npm run few scripts" concurrently, so <CopyClipboard text="npm i concurrently" />
+                        </li>
+                        <li>
+                            If we are using css modules, we can join it with typescript intellisence with{" "}
+                            <CopyClipboard text="npm I –D typescript-plugin-css-modules" />
+                            {/* https://www.youtube.com/watch?v=91ugFG2noZ4&ab_channel=%D0%9C%D0%B8%D1%85%D0%B0%D0%B8%D0%BB%D0%9D%D0%B5%D0%BF%D0%BE%D0%BC%D0%BD%D1%8F%D1%89%D0%B8%D0%B9 */}
                         </li>
                     </ul>
                 </div>

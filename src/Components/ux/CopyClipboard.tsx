@@ -42,6 +42,7 @@ const CopyClipboard: FC<IcopyClipboardProps> = ({ text }) => {
 
     return (
         <span
+            className="npm"
             ref={childrenRef}
             onClick={tipHandler().onCLick}
             onMouseEnter={tipHandler().onMouseEnter}
