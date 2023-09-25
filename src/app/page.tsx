@@ -9,8 +9,13 @@ import { utcToZonedTime } from "date-fns-tz";
 import CopyClipboard from "@/Components/ux/CopyClipboard";
 import SkeletonExample from "@/Components/SkeletonExample";
 import HomeFormTanStack from "@/Components/HomeFormTanStack";
+import PaginationExample from "@/Components/PaginationExample";
+import { postResourse } from "@/lib/fetch";
 
-export default async function Home() {
+export default async function Home(
+    // For each page we can automatiacly, by default pass searchParams query
+    { searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }
+) {
     const isLoading = false;
 
     return (
@@ -239,10 +244,8 @@ export default async function Home() {
                 </div>
                 <div className="divider"></div>
                 <div className="explain-list">
-                    <h3>
-                        Previously we found out how to write flexible ui component. But forgot about usual classes.{" "}
-                        <CopyClipboard text="npm i clsx" />
-                    </h3>
+                    <h3>How to handle the most functional type of pagination</h3>
+                    <PaginationExample searchParams={searchParams} />
                 </div>
                 <div className="divider"></div>
                 <div className="explain-list">

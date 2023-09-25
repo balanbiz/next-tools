@@ -56,7 +56,7 @@ const CopyClipboard: FC<IcopyClipboardProps> = ({ text }) => {
 export default CopyClipboard;
 
 /* scss classes for this {
-    .npm {
+    span.npm {
         position: relative;
         color: cadetblue;
         font-weight: bold;
@@ -74,11 +74,11 @@ export default CopyClipboard;
             border: 2px solid cadetblue;
             border-radius: 4px;
         }
-        .hover::before {
+        &.hover::before {
             content: "Click to copy";
             @include tooltip;
         }
-        .active {
+        &.active {
             &::before {
                 content: "Copied";
                 @include tooltip;

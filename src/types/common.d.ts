@@ -5,3 +5,8 @@ interface IHomeUser {
     isAdmin: boolean;
     createdAt: Date;
 }
+
+interface IEntry {
+    id: number;
+    data: string;
+}

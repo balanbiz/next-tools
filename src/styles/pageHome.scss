@@ -67,7 +67,7 @@
             }
         }
 
-        .npm {
+        span.npm {
             position: relative;
             color: cadetblue;
             font-weight: bold;
@@ -85,11 +85,11 @@
                 border: 2px solid cadetblue;
                 border-radius: 4px;
             }
-            .hover::before {
+            &.hover::before {
                 content: "Click to copy";
                 @include tooltip;
             }
-            .active {
+            &.active {
                 &::before {
                     content: "Copied";
                     @include tooltip;
@@ -148,6 +148,6 @@
         margin: 20px;
         width: 80%;
         height: 3px;
-        background-color: #fff;
+        background-color: #f11;
     }
 }

@@ -6,6 +6,7 @@ export async function db_connect(query: string, values = []) {
         database: process.env.DB_NAME,
         user: process.env.DB_USERNAME,
         password: process.env.DB_PASSWORD,
+        port: 3307,
     });
     try {
         const [results] = await db_connection.execute(query, values);
